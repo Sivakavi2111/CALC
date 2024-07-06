@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CALCULATOR</title>
+            <style>
+                table {
+                    background-color: black;
+                    border: 1px solid black;
+                    border-radius: 10px;
+                    margin-top: 50px;
+                    margin-left: 600px;
+                    margin-right:200px;
+                    padding: 5px;
+                }
+                input[type="text"] {
+                    background-color:white;
+                    color: black;
+                    border-radius: 10px;
+                    display: inline-block;
+                    height: 40px;
+                    width: 200px;
+                    text-align: right;
+                    position: relative;
+                    margin-right: 2px;
+                    margin-left: 1px;
+                    margin: 5px;
+                
+                    
+                    
+                }
+                input[type="button"] {
+                    background-color: white;
+                    color: black;
+                    border-radius: 10px;
+                    font-size: medium;
+                    height: 50px;
+                    width: 50px;
+                    padding-right: 2px;
+                    padding-left: 1px;
+                    cursor: pointer;
+                }
+                ::placeholder {
+                    color: black;
+                    padding-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" id="display" placeholder="0" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="AC" onclick="clearDisplay()"></td> 
+                    <td><input type="button" value="+/-" onclick="negate()"></td> 
+                    <td><input type="button" value="%" onclick="percentage()"></td> 
+                    <td><input type="button" value="/" onclick="append('/')"></td> 
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="append('7')"></td> 
+                    <td><input type="button" value="8" onclick="append('8')"></td> 
+                    <td><input type="button" value="9" onclick="append('9')"></td> 
+                    <td><input type="button" value="*" onclick="append('*')"></td> 
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="append('4')"></td> 
+                    <td><input type="button" value="5" onclick="append('5')"></td> 
+                    <td><input type="button" value="6" onclick="append('6')"></td> 
+                    <td><input type="button" value="-" onclick="append('-')"></td> 
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="append('1')"></td> 
+                    <td><input type="button" value="2" onclick="append('2')"></td> 
+                    <td><input type="button" value="3" onclick="append('3')"></td> 
+                    <td><input type="button" value="+" onclick="append('+')"></td> 
+                </tr>
+                <tr>
+                    <td><input type="button" value="00" onclick="append('00')"></td> 
+                    <td><input type="button" value="0" onclick="append('0')"></td> 
+                    <td><input type="button" value="." onclick="append('.')"></td> 
+                    <td><input type="button" value="=" onclick="calculate()"></td> 
+                </tr>
+            </table>
+        
+            <script>
+                function clearDisplay() {
+                    document.getElementById('display').value = '';
+                }
+        
+                function append(value) {
+                    document.getElementById('display').value += value;
+                }
+        
+                function negate() {
+                    let currentValue = document.getElementById('display').value;
+                    if (currentValue.charAt(0) === '-') {
+                        document.getElementById('display').value = currentValue.substr(1);
+                    } else {
+                        document.getElementById('display').value = '-' + currentValue;
+                    }
+                }
+        
+                function percentage() {
+                    let currentValue = document.getElementById('display').value;
+                    document.getElementById('display').value = parseFloat(currentValue) / 100;
+                }
+        
+                function calculate() {
+                    let expression = document.getElementById('display').value;
+                    let result = eval(expression);
+                    document.getElementById('display').value = result;
+                }
+            </script>
+        </body>
+        </html>
+        </title>
+</head>
+<body>
+    
+</body>
+</html>
